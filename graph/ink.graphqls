@@ -1,0 +1,37 @@
+extend type Mutation {
+  """
+  上传智能合约
+  Upload ink! contract
+  """
+  upload_contract(
+    """
+    project
+    """
+    project: String!
+    """
+    code abi
+    """
+    abi: String!
+  ): Boolean!
+}
+
+extend type Query {
+  """
+  获取智能合约列表
+  Get abi list of ink! contract
+  """
+  list_contract(
+    """
+    project
+    """
+    project: String!
+    """
+    page
+    """
+    page: Int!
+    """
+    page size
+    """
+    page_size: Int!
+  ): [String!]!
+}
