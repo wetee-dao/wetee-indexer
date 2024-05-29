@@ -7,7 +7,7 @@ package graph
 import (
 	"context"
 
-	"github.com/wetee-dao/cache/store"
+	"github.com/wetee-dao/indexer/store"
 )
 
 // UploadContract is the resolver for the upload_contract field.

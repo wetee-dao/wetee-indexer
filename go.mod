@@ -1,4 +1,4 @@
-module github.com/wetee-dao/cache
+module github.com/wetee-dao/indexer
 
 go 1.21.6
 

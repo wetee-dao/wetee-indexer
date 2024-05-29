@@ -11,9 +11,9 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/cors"
 
-	"github.com/wetee-dao/cache/graph"
-	"github.com/wetee-dao/cache/store"
-	"github.com/wetee-dao/cache/util"
+	"github.com/wetee-dao/indexer/graph"
+	"github.com/wetee-dao/indexer/store"
+	"github.com/wetee-dao/indexer/util"
 )
 
 const defaultPort = "8881"
