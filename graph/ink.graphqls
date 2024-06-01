@@ -1,9 +1,9 @@
 extend type Mutation {
   """
-  上传智能合约
+  上传智能合约 ABI
   Upload ink! contract
   """
-  upload_contract(
+  upload_contract_api(
     """
     project
     """
@@ -16,6 +16,25 @@ extend type Mutation {
 }
 
 extend type Query {
+  """
+  获取智能合约 ABI 列表
+  Get abi list of ink! contract abi
+  """
+  list_contract_abi(
+    """
+    project
+    """
+    project: String!
+    """
+    page
+    """
+    page: Int!
+    """
+    page size
+    """
+    page_size: Int!
+  ): [String!]!
+
   """
   获取智能合约列表
   Get abi list of ink! contract

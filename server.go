@@ -61,5 +61,6 @@ func main() {
 		fmt.Println(err, "unable to start database")
 		os.Exit(1)
 	}
+	go graph.SubEvent()
 	StartServer()
 }

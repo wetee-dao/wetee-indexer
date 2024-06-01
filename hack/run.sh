@@ -8,4 +8,5 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE"  )" && pwd  )"
 cd $DIR/../
 
+export CHAIN_URI=wss://xiaobai.asyou.me:30001
 go run server.go
