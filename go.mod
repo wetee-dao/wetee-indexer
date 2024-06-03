@@ -4,8 +4,9 @@ go 1.21.6
 
 require (
 	github.com/fatih/color v1.17.0
+	github.com/vedhavyas/go-subkey/v2 v2.0.0
 	github.com/vektah/gqlparser/v2 v2.5.12
-	github.com/wetee-dao/go-sdk v0.1.1-0.20240527121601-7394efe9f49c
+	github.com/wetee-dao/go-sdk v0.1.1-0.20240602023050-1d5be254b900
 )
 
 require (
@@ -37,7 +38,6 @@ require (
 	github.com/sosodev/duration v1.3.1 // indirect
 	github.com/tidwall/btree v1.6.0 // indirect
 	github.com/urfave/cli/v2 v2.27.2 // indirect
-	github.com/vedhavyas/go-subkey/v2 v2.0.0 // indirect
 	github.com/xrash/smetrics v0.0.0-20240312152122-5f08fbb34913 // indirect
 	github.com/xujiajun/mmap-go v1.0.1 // indirect
 	github.com/xujiajun/utils v0.0.0-20220904132955-5f7c5b914235 // indirect

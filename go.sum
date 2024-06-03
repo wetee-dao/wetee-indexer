@@ -120,8 +120,8 @@ github.com/vedhavyas/go-subkey/v2 v2.0.0 h1:LemDIsrVtRSOkp0FA8HxP6ynfKjeOj3BY2U9
 github.com/vedhavyas/go-subkey/v2 v2.0.0/go.mod h1:95aZ+XDCWAUUynjlmi7BtPExjXgXxByE0WfBwbmIRH4=
 github.com/vektah/gqlparser/v2 v2.5.12 h1:COMhVVnql6RoaF7+aTBWiTADdpLGyZWU3K/NwW0ph98=
 github.com/vektah/gqlparser/v2 v2.5.12/go.mod h1:WQQjFc+I1YIzoPvZBhUQX7waZgg3pMLi0r8KymvAE2w=
-github.com/wetee-dao/go-sdk v0.1.1-0.20240527121601-7394efe9f49c h1:9FIoBqgSo3spzvRmIADDEzB8wNoFT61ncXhYHu4dwJ8=
-github.com/wetee-dao/go-sdk v0.1.1-0.20240527121601-7394efe9f49c/go.mod h1:Ep466Qvt9ScjTLvUTVhKFb4lQfWVJfxLvSk4JR9tsr0=
+github.com/wetee-dao/go-sdk v0.1.1-0.20240602023050-1d5be254b900 h1:BZNcgk+/S/7gmJpiQ73rquvWWhUmfAaZLxyuHr0ZAZc=
+github.com/wetee-dao/go-sdk v0.1.1-0.20240602023050-1d5be254b900/go.mod h1:Ep466Qvt9ScjTLvUTVhKFb4lQfWVJfxLvSk4JR9tsr0=
 github.com/xrash/smetrics v0.0.0-20240312152122-5f08fbb34913 h1:+qGGcbkzsfDQNPPe9UDgpxAWQrhbbBXOYJFQDq/dtJw=
 github.com/xrash/smetrics v0.0.0-20240312152122-5f08fbb34913/go.mod h1:4aEEwZQutDLsQv2Deui4iYQ6DWTxR14g6m8Wv88+Xqk=
 github.com/xujiajun/mmap-go v1.0.1 h1:7Se7ss1fLPPRW+ePgqGpCkfGIZzJV6JPq9Wq9iv/WHc=

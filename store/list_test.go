@@ -13,7 +13,7 @@ func TestAddToList(t *testing.T) {
 	now := fmt.Sprint(time.Now().Unix())
 	b1 := "log"
 	b2 := "cr"
-	key := []byte("key" + now)
+	key := "key" + now
 
 	if err := AddToList(b1, key, []byte("val")); err != nil {
 		t.Fatal(err)

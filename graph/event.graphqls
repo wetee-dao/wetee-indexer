@@ -1,0 +1,27 @@
+type Event {
+  project: String!
+  work_id: String!
+  work_type: String!
+  action: String!
+}
+
+extend type Query {
+  """
+  获取智能合约 ABI 列表
+  Get abi list of ink! contract abi
+  """
+  list_event(
+    """
+    project
+    """
+    project: String!
+    """
+    page
+    """
+    page: Int!
+    """
+    page size
+    """
+    page_size: Int!
+  ): [Event!]!
+}

@@ -1,9 +1,16 @@
+type Contract {
+  project: String!
+  contract: String!
+  code_hash: String!
+  abi: String!
+}
+
 extend type Mutation {
   """
   上传智能合约 ABI
   Upload ink! contract
   """
-  upload_contract_api(
+  upload_contract_abi(
     """
     project
     """
@@ -52,5 +59,5 @@ extend type Query {
     page size
     """
     page_size: Int!
-  ): [String!]!
+  ): [Contract!]!
 }

@@ -2,6 +2,20 @@
 
 package model
 
+type Contract struct {
+	Project  string `json:"project"`
+	Contract string `json:"contract"`
+	CodeHash string `json:"code_hash"`
+	Abi      string `json:"abi"`
+}
+
+type Event struct {
+	Project  string `json:"project"`
+	WorkID   string `json:"work_id"`
+	WorkType string `json:"work_type"`
+	Action   string `json:"action"`
+}
+
 type Mutation struct {
 }
 

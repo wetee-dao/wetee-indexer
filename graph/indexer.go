@@ -1,12 +1,17 @@
 package graph
 
 import (
+	"encoding/hex"
+	"encoding/json"
 	"fmt"
 	"os"
 	"time"
 
+	"github.com/vedhavyas/go-subkey/v2"
 	chain "github.com/wetee-dao/go-sdk"
+	"github.com/wetee-dao/go-sdk/gen/contracts"
 	"github.com/wetee-dao/go-sdk/gen/system"
+	"github.com/wetee-dao/indexer/graph/model"
 	"github.com/wetee-dao/indexer/store"
 	"github.com/wetee-dao/indexer/util"
 )
@@ -48,6 +53,11 @@ mintStart:
 			// Wait 10 seconds to try again
 			time.Sleep(time.Second * 10)
 			continue
+		}
+
+		if uint32(storeBlock)+100 < uint32(header.Number) {
+			store.SetChainBlock(uint64(header.Number))
+			storeBlock = uint64(header.Number)
 		}
 
 		if uint32(storeBlock) > uint32(header.Number) {
@@ -112,7 +122,6 @@ mintStart:
 			continue
 		}
 	}
-	return nil
 }
 
 func ExpEvent(number uint64) error {
@@ -135,17 +144,76 @@ func ExpEvent(number uint64) error {
 		if e.IsWeteeWorker {
 			if e.AsWeteeWorkerField0.IsWorkRuning {
 				fmt.Println("程序启动")
+				var user = e.AsWeteeWorkerField0.AsWorkRuningUser0
+				var project = subkey.SS58Encode(user[:], 42)
+				var work_id = e.AsWeteeWorkerField0.AsWorkRuningWorkId1
+				ce := model.Event{
+					Project:  project,
+					WorkID:   fmt.Sprint(work_id.Id),
+					WorkType: util.GetWorkTypeStr(work_id),
+					Action:   "start",
+				}
+				bt, _ := json.Marshal(ce)
+				store.AddToList("event", project, bt)
 			}
 			if e.AsWeteeWorkerField0.IsWorkStoped {
 				fmt.Println("程序停止")
+				var user = e.AsWeteeWorkerField0.AsWorkStopedUser0
+				var project = subkey.SS58Encode(user[:], 42)
+				var work_id = e.AsWeteeWorkerField0.AsWorkStopedWorkId1
+				ce := model.Event{
+					Project:  project,
+					WorkID:   fmt.Sprint(work_id.Id),
+					WorkType: util.GetWorkTypeStr(work_id),
+					Action:   "stop",
+				}
+				bt, _ := json.Marshal(ce)
+				store.AddToList("event", project, bt)
 			}
 			if e.AsWeteeWorkerField0.IsWorkContractUpdated {
 				fmt.Println("程序上传工作量证明")
+				var user = e.AsWeteeWorkerField0.AsWorkContractUpdatedUser0
+				var project = subkey.SS58Encode(user[:], 42)
+				var work_id = e.AsWeteeWorkerField0.AsWorkContractUpdatedWorkId1
+				ce := model.Event{
+					Project:  project,
+					WorkID:   fmt.Sprint(work_id.Id),
+					WorkType: util.GetWorkTypeStr(work_id),
+					Action:   "work_contract_updated",
+				}
+				bt, _ := json.Marshal(ce)
+				store.AddToList("event", project, bt)
 			}
 		}
 		if e.IsContracts {
 			if e.AsContractsField0.IsInstantiated {
 				fmt.Println("合约部署成功")
+				var user = e.AsContractsField0.AsInstantiatedDeployer0
+				var project = subkey.SS58Encode(user[:], 42)
+				var id = e.AsContractsField0.AsInstantiatedContract1
+				var idStr = subkey.SS58Encode(id[:], 42)
+				ce := model.Event{
+					Project:  project,
+					WorkID:   idStr,
+					WorkType: "ink!",
+					Action:   "start",
+				}
+				bt, _ := json.Marshal(ce)
+				store.AddToList("event", project, bt)
+
+				contract := model.Contract{
+					Project:  project,
+					Contract: idStr,
+					CodeHash: "",
+				}
+
+				ret, isSome, err := contracts.GetContractInfoOfLatest(chainAPI.RPC.State, id)
+				if err == nil && isSome {
+					contract.CodeHash = hex.EncodeToString(ret.CodeHash[:])
+				}
+
+				bt2, _ := json.Marshal(contract)
+				store.AddToList("contract", project, bt2)
 			}
 			if e.AsContractsField0.IsCodeStored {
 				fmt.Println("合约代码上传成功")

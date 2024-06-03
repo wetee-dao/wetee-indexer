@@ -4,7 +4,8 @@ import (
 	"github.com/nutsdb/nutsdb"
 )
 
-func AddToList(bucket string, key []byte, val []byte) error {
+func AddToList(bucket string, keyStr string, val []byte) error {
+	key := []byte(bucket + keyStr)
 	val, err := SealWithProductKey(val, nil)
 	if err != nil {
 		return err
@@ -22,7 +23,8 @@ func AddToList(bucket string, key []byte, val []byte) error {
 	)
 }
 
-func GetList(bucket string, key []byte, page int, size int) ([][]byte, error) {
+func GetList(bucket string, keyStr string, page int, size int) ([][]byte, error) {
+	key := []byte(bucket + keyStr)
 	err := checkBucket(bucket, nutsdb.DataStructureList)
 	if err != nil {
 		return nil, err
