@@ -1,0 +1,17 @@
+{
+    "exe": "./indexer",
+    "key": "./keys/private.pem",
+    "debug": true,
+    "heapSize": 256,
+    "executableHeap": false,
+    "productID": 1,
+    "securityVersion": 1,
+    "mounts": [
+        {
+            "source": "/opt/wetee-cache",
+            "target": "/opt/wetee-cache",
+            "type": "hostfs",
+            "readOnly": false
+        }
+    ]
+}
