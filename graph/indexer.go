@@ -141,12 +141,12 @@ func ExpEvent(number uint64) error {
 
 	for _, event := range events {
 		e := event.Event
-		if e.IsWeteeWorker {
-			if e.AsWeteeWorkerField0.IsWorkRuning {
+		if e.IsWeTEEWorker {
+			if e.AsWeTEEWorkerField0.IsWorkRuning {
 				fmt.Println("程序启动")
-				var user = e.AsWeteeWorkerField0.AsWorkRuningUser0
+				var user = e.AsWeTEEWorkerField0.AsWorkRuningUser0
 				var project = subkey.SS58Encode(user[:], 42)
-				var work_id = e.AsWeteeWorkerField0.AsWorkRuningWorkId1
+				var work_id = e.AsWeTEEWorkerField0.AsWorkRuningWorkId1
 				ce := model.Event{
 					Project:  project,
 					WorkID:   fmt.Sprint(work_id.Id),
@@ -156,11 +156,11 @@ func ExpEvent(number uint64) error {
 				bt, _ := json.Marshal(ce)
 				store.AddToList("event", project, bt)
 			}
-			if e.AsWeteeWorkerField0.IsWorkStoped {
+			if e.AsWeTEEWorkerField0.IsWorkStoped {
 				fmt.Println("程序停止")
-				var user = e.AsWeteeWorkerField0.AsWorkStopedUser0
+				var user = e.AsWeTEEWorkerField0.AsWorkStopedUser0
 				var project = subkey.SS58Encode(user[:], 42)
-				var work_id = e.AsWeteeWorkerField0.AsWorkStopedWorkId1
+				var work_id = e.AsWeTEEWorkerField0.AsWorkStopedWorkId1
 				ce := model.Event{
 					Project:  project,
 					WorkID:   fmt.Sprint(work_id.Id),
@@ -170,11 +170,11 @@ func ExpEvent(number uint64) error {
 				bt, _ := json.Marshal(ce)
 				store.AddToList("event", project, bt)
 			}
-			if e.AsWeteeWorkerField0.IsWorkContractUpdated {
+			if e.AsWeTEEWorkerField0.IsWorkContractUpdated {
 				fmt.Println("程序上传工作量证明")
-				var user = e.AsWeteeWorkerField0.AsWorkContractUpdatedUser0
+				var user = e.AsWeTEEWorkerField0.AsWorkContractUpdatedUser0
 				var project = subkey.SS58Encode(user[:], 42)
-				var work_id = e.AsWeteeWorkerField0.AsWorkContractUpdatedWorkId1
+				var work_id = e.AsWeTEEWorkerField0.AsWorkContractUpdatedWorkId1
 				ce := model.Event{
 					Project:  project,
 					WorkID:   fmt.Sprint(work_id.Id),
