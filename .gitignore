@@ -1,2 +1,11 @@
 hack/indexer-temp.yaml
 hack/indexer.yaml
+
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+hacks/.config
+ossutil_output
+bin/indexer

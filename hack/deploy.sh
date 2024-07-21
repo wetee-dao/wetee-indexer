@@ -13,11 +13,11 @@ tag=`date "+%Y-%m-%d-%H_%M"`
 # 构建镜像
 ego-go build -o ./bin/indexer ./server.go
 
-docker build -t wetee/indexer:$tag .
+docker build -t registry.cn-hangzhou.aliyuncs.com/wetee_dao/indexer:$tag .
 
-docker push wetee/indexer:$tag
+docker push registry.cn-hangzhou.aliyuncs.com/wetee_dao/indexer:$tag
 
-export WETEE_INDEXER_IMAGE=wetee/indexer:$tag
+export WETEE_INDEXER_IMAGE=registry.cn-hangzhou.aliyuncs.com/wetee_dao/indexer:$tag
 echo '' > ./hack/indexer.yaml
 envsubst < ./hack/indexer-temp.yaml > ./hack/indexer.yaml
 
