@@ -9,8 +9,8 @@ import (
 
 	"github.com/vedhavyas/go-subkey/v2"
 	chain "github.com/wetee-dao/go-sdk"
-	"github.com/wetee-dao/go-sdk/gen/contracts"
-	"github.com/wetee-dao/go-sdk/gen/system"
+	"github.com/wetee-dao/go-sdk/pallet/contracts"
+	"github.com/wetee-dao/go-sdk/pallet/system"
 	"github.com/wetee-dao/indexer/graph/model"
 	"github.com/wetee-dao/indexer/store"
 	"github.com/wetee-dao/indexer/util"

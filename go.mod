@@ -6,7 +6,7 @@ require (
 	github.com/fatih/color v1.17.0
 	github.com/vedhavyas/go-subkey/v2 v2.0.0
 	github.com/vektah/gqlparser/v2 v2.5.16
-	github.com/wetee-dao/go-sdk v0.1.1-0.20240629135856-283be1ca8d59
+	github.com/wetee-dao/go-sdk v1.0.0
 )
 
 require (
@@ -15,7 +15,7 @@ require (
 	github.com/antlabs/stl v0.0.2 // indirect
 	github.com/antlabs/timer v0.1.4 // indirect
 	github.com/bwmarrin/snowflake v0.3.0 // indirect
-	github.com/centrifuge/go-substrate-rpc-client/v4 v4.2.1 // indirect
+	github.com/centrifuge/go-substrate-rpc-client/v4 v4.2.2-0.20240731190417-9d7be34be928 // indirect
 	github.com/cosmos/go-bip39 v1.0.0 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.4 // indirect
 	github.com/deckarep/golang-set v1.8.0 // indirect
@@ -42,7 +42,7 @@ require (
 	github.com/xrash/smetrics v0.0.0-20240521201337-686a1a2994c1 // indirect
 	github.com/xujiajun/mmap-go v1.0.1 // indirect
 	github.com/xujiajun/utils v0.0.0-20220904132955-5f7c5b914235 // indirect
-	golang.org/x/crypto v0.24.0 // indirect
+	golang.org/x/crypto v0.25.0 // indirect
 	golang.org/x/exp v0.0.0-20240613232115-7f521ea00fb8 // indirect
 	golang.org/x/mod v0.18.0 // indirect
 	golang.org/x/sync v0.7.0 // indirect
@@ -60,5 +60,7 @@ require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/nutsdb/nutsdb v1.0.4
-	golang.org/x/sys v0.21.0 // indirect
+	golang.org/x/sys v0.22.0 // indirect
 )
+
+replace github.com/wetee-dao/go-sdk v1.0.0 => ../go-sdk
